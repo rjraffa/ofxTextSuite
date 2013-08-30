@@ -23,6 +23,8 @@
 #include "ofMain.h"
 #include <iterator>
 
+#include "ofxRetinaTrueTypeFont.h"
+
 class wordBlock {
     public:
         string          rawWord;
@@ -51,10 +53,10 @@ class ofxTextBlock
         ofxTextBlock();
         virtual ~ofxTextBlock();
 
-        string          rawText;
-        ofTrueTypeFont  defaultFont;
-        wordBlock       blankSpaceWord;
-        float           scale;
+        string                  rawText;
+        ofxRetinaTrueTypeFont   defaultFont;
+        wordBlock               blankSpaceWord;
+        float                   scale;
 
         vector<wordBlock>   words;
         vector<lineBlock>   lines;
@@ -68,13 +70,14 @@ class ofxTextBlock
         bool    wrapTextForceLines(int linesN);
 
         void    setLineHeight(float lineHeight);
+        void    setLetterSpacing (float letterSpacing);
         void    setColor(int r, int g, int b, int a);
 
         void    draw(float x, float y);                    //Draws left align.
         void    drawLeft(float x, float y);
-        void    drawRight(float x, float y);
-        void    drawCenter(float x, float y);
-        void    drawJustified(float x, float y, float boxWidth);
+//        void    drawRight(float x, float y);
+//        void    drawCenter(float x, float y);
+//        void    drawJustified(float x, float y, float boxWidth);
 
 
         void    forceScale(float _scale);
